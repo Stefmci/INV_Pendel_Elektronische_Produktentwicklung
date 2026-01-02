@@ -1,0 +1,122 @@
+UNITS=MM
+#
+#Component attribute names
+#
+@0 .comp_mount_type
+@1 .comp_height
+@2 .no_pop
+@3 .comp_ignore
+@4 .comp_variant_list
+@5 .placement_layer
+
+#
+#Component attribute text strings
+#
+&0 bottom_layer
+
+# CMP 0
+CMP 52 115.33200962 54.3559873 180 N R52 RC0805FR-0710RL ;0=1,1=0.6000,5=0
+PRP Case_Code_(Imperial) '0805'
+PRP Case_Code_(Metric) '2012'
+PRP Case/Package '0805'
+PRP Composition 'ThickFilm'
+PRP Datasheet_URL 'http://www.yageo.com/NewPortal/yageodocoutput?fileName=/pdf/R-Chip/PYu-RC_Group_51_RoHS_L_5.pdf'
+PRP Datasheet_Version 'Rev. 5, 10/2016'
+PRP Depth '1.25mm'
+PRP Height '0.5mm'
+PRP Lead_Free 'LeadFree'
+PRP Length '2mm'
+PRP Manufacturer 'Yageo'
+PRP Manufacturer_URL 'http://www.yageo.com/'
+PRP Max_Operating_Temperature '155degC'
+PRP Max_Power_Dissipation '125mW'
+PRP Min_Operating_Temperature '-55degC'
+PRP Number_of_Pins '2'
+PRP Number_of_Terminations '2'
+PRP Package_Description '2-Pin Surface Mounted Device, Body 2 x 1.25 mm'
+PRP Package_Quantity '1'
+PRP Package_Reference '0805'
+PRP Packaging 'TapeandReel'
+PRP Power_Rating '125mW'
+PRP REACH_SVHC 'NoSVHC'
+PRP Resistance '10Ohm'
+PRP RoHSCompliant 'true'
+PRP Temperature_Coefficient '200ppm/degreesC'
+PRP Termination 'SMD/SMT'
+PRP Tolerance '1%'
+PRP Voltage_Rating '150V'
+PRP Voltage_Rating_(DC) '150V'
+PRP Width '1.25mm'
+TOP 0 114.332004 54.356 90 N 68 3 1
+TOP 1 116.332 54.356 90 N 17 0 2
+#
+# CMP 1
+CMP 52 115.33200962 52.3239873 180 N R51 RC0805FR-0710RL ;0=1,1=0.6000,5=0
+PRP Case_Code_(Imperial) '0805'
+PRP Case_Code_(Metric) '2012'
+PRP Case/Package '0805'
+PRP Composition 'ThickFilm'
+PRP Datasheet_URL 'http://www.yageo.com/NewPortal/yageodocoutput?fileName=/pdf/R-Chip/PYu-RC_Group_51_RoHS_L_5.pdf'
+PRP Datasheet_Version 'Rev. 5, 10/2016'
+PRP Depth '1.25mm'
+PRP Height '0.5mm'
+PRP Lead_Free 'LeadFree'
+PRP Length '2mm'
+PRP Manufacturer 'Yageo'
+PRP Manufacturer_URL 'http://www.yageo.com/'
+PRP Max_Operating_Temperature '155degC'
+PRP Max_Power_Dissipation '125mW'
+PRP Min_Operating_Temperature '-55degC'
+PRP Number_of_Pins '2'
+PRP Number_of_Terminations '2'
+PRP Package_Description '2-Pin Surface Mounted Device, Body 2 x 1.25 mm'
+PRP Package_Quantity '1'
+PRP Package_Reference '0805'
+PRP Packaging 'TapeandReel'
+PRP Power_Rating '125mW'
+PRP REACH_SVHC 'NoSVHC'
+PRP Resistance '10Ohm'
+PRP RoHSCompliant 'true'
+PRP Temperature_Coefficient '200ppm/degreesC'
+PRP Termination 'SMD/SMT'
+PRP Tolerance '1%'
+PRP Voltage_Rating '150V'
+PRP Voltage_Rating_(DC) '150V'
+PRP Width '1.25mm'
+TOP 0 114.332004 52.324 90 N 67 3 1
+TOP 1 116.332 52.324 90 N 18 0 2
+#
+# CMP 2
+CMP 7 69.5000007 79.50000102 180 N C27 Capacitor_100_nF_+/-10%_50_V_0805 ;0=1,1=0.9500,5=0
+PRP Capacitor_Type 'Ceramic'
+PRP Case/Package '0805'
+PRP Max_Operating_Temperature '125°C'
+PRP Min_Operating_Temperature '-55°C'
+PRP Mounting_Technology 'SM'
+PRP Pins '2'
+PRP Ripple_Current ''
+PRP Ripple_Current_(AC) ''
+PRP RoHS_Compliant 'True'
+PRP Tolerance '10%'
+PRP Value '100nF'
+PRP Voltage_Rating '50V'
+TOP 0 68.7749704 79.5000188 90 N 146 131 1
+TOP 1 70.2250056 79.5000188 90 N 152 76 2
+#
+# CMP 3
+CMP 7 76.2499999 91.00000088 270 N C20 Capacitor_100_nF_+/-10%_50_V_0805 ;0=1,1=0.9500,5=0
+PRP Capacitor_Type 'Ceramic'
+PRP Case/Package '0805'
+PRP Max_Operating_Temperature '125°C'
+PRP Min_Operating_Temperature '-55°C'
+PRP Mounting_Technology 'SM'
+PRP Pins '2'
+PRP Ripple_Current ''
+PRP Ripple_Current_(AC) ''
+PRP RoHS_Compliant 'True'
+PRP Tolerance '10%'
+PRP Value '100nF'
+PRP Voltage_Rating '50V'
+TOP 0 76.2499872 90.2750036 0 N 146 42 1
+TOP 1 76.2499872 91.7250388 0 N 152 39 2
+#

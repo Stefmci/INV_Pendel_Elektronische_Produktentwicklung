@@ -1,0 +1,4 @@
+Added Pin To Net: NetName=NetL1_2 Pin=L1-2
+Added Member To Class: ClassName=ESP8266_final Member=Component C7 C0805C106K8PACTU
+Added Member To Class: ClassName=ESP8266_final Member=Component C8 C0805C104J8RACTU
+Added Member To Class: ClassName=ESP8266_final Member=Component L1 LQW18AN4N3C00D

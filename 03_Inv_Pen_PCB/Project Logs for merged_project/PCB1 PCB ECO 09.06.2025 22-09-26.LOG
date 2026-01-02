@@ -1,0 +1,14 @@
+Added Component: Designator=RF(PCBComponent_1)
+Add component (AddParameter): Name = "Case/Package"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Frequency"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Operating Temperature"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Min Operating Temperature"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mounting Technology"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Pins"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RoHS Compliant"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage Rating"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetC9_1 Pin=RF-1
+Added Pin To Net: NetName=GND Pin=RF-2
+Added Member To Class: ClassName=stm32_schematic Member=Component C25 08055A150JAT2A
+Added Member To Class: ClassName=ESP8266_final Member=Component RF RF_ESP8266
+Added Member To Class: ClassName=PCB_USB_UART Member=Component SW5 PTS645SM43SMTR92LFS

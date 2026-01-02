@@ -1,0 +1,161 @@
+Removed Pin From Net: NetName=+3V3 Pin=U1-1
+Removed Pin From Net: NetName=NetC9_2 Pin=U1-2
+Removed Pin From Net: NetName=NetL1_2 Pin=U1-3
+Removed Pin From Net: NetName=NetL1_2 Pin=U1-4
+Removed Pin From Net: NetName=NetJ1_5 Pin=U1-6
+Removed Pin From Net: NetName=NetIC2_6 Pin=U1-7
+Removed Pin From Net: NetName=NetJ1_1 Pin=U1-8
+Removed Pin From Net: NetName=NetR13_2 Pin=U1-9
+Removed Pin From Net: NetName=NetR12_2 Pin=U1-10
+Removed Pin From Net: NetName=NetR10_2 Pin=U1-12
+Removed Pin From Net: NetName=NetR6_1 Pin=U1-13
+Removed Pin From Net: NetName=NetIC2_2 Pin=U1-14
+Removed Pin From Net: NetName=NetIC2_3 Pin=U1-15
+Removed Pin From Net: NetName=NetJ1_3 Pin=U1-16
+Removed Pin From Net: NetName=NetIC1_7 Pin=U1-18
+Removed Pin From Net: NetName=NetIC1_3 Pin=U1-19
+Removed Pin From Net: NetName=NetIC1_1 Pin=U1-20
+Removed Pin From Net: NetName=NetR2_2 Pin=U1-21
+Removed Pin From Net: NetName=NetIC1_2 Pin=U1-22
+Removed Pin From Net: NetName=NetIC1_3 Pin=U1-23
+Removed Pin From Net: NetName=NetQ1_1 Pin=U1-24
+Removed Pin From Net: NetName=NetR1_2 Pin=U1-25
+Removed Pin From Net: NetName=NetIC2_4 Pin=U1-26
+Removed Pin From Net: NetName=NetC1_1 Pin=U1-27
+Removed Pin From Net: NetName=NetC3_1 Pin=U1-28
+Removed Pin From Net: NetName=+3V3 Pin=U1-29
+Removed Pin From Net: NetName=+3V3 Pin=U1-30
+Removed Pin From Net: NetName=NetR5_2 Pin=U1-31
+Removed Pin From Net: NetName=NetR8_1 Pin=U1-32
+Removed Pin From Net: NetName=GND Pin=U1-33
+Removed Member From Class: ClassName=ESP8266_final Member=U1
+Add component: Footprint Not Found PCBComponent_1
+Add component: Footprint Not Found CAPPR65-350-1150X800X1250
+Add component: Footprint Not Found CAPPR55-200-1100X500X1200
+Add component: Footprint Not Found CAPPR55-200-1100X500X1200
+Add component: Footprint Not Found CAPPR55-200-1100X500X1200
+Add component: Footprint Not Found CAPPR55-200-1100X500X1200
+Add component: Footprint Not Found CAPPR55-200-1100X500X1200
+Add component: Footprint Not Found SOIC127P790X216-8N
+Add component: Footprint Not Found ESP01
+Add component: Footprint Not Found 691210910004
+Add component: Footprint Not Found SOT96P240X110-3N
+Add component: Footprint Not Found RESC2013X50X35ML15T15
+Add component: Footprint Not Found RESC2013X50X35ML15T15
+Add component: Footprint Not Found RESC2013X50X35ML15T15
+Add component: Footprint Not Found RESC2013X50X35ML15T15
+Add component: Footprint Not Found RESC2013X50X35ML15T15
+Add component: Footprint Not Found RESC2013X50X35ML15T15
+Add component: Footprint Not Found RESC2013X50X35ML15T15
+Added Component: Designator=U?(ESFS-QFN-32_L)
+Add component (AddParameter): Name = "Datasheet URL"; Value = "http://espressif.com/sites/default/files/documentation/0a-esp8266ex_datasheet_en.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Version"; Value = "Rev. 5.4, 04/2017"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Espressif Systems"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer URL"; Value = "http://espressif.com"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mounting Technology"; Value = "SurfaceMount"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package Description"; Value = "32-Pin Quad Falt No-Lead, Body 5 x 5 mm, Pitch 0.5 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package Reference"; Value = "QFN-32"; VariantName = "[No Variations]"
+Add component: Footprint Not Found ABLS
+Add Pin To Net: Unknown Pin: Pin *1-1
+Add Pin To Net: Unknown Pin: Pin *1-2
+Add Pin To Net: Unknown Pin: Pin C30-1
+Add Pin To Net: Unknown Pin: Pin C30-2
+Add Pin To Net: Unknown Pin: Pin C34-1
+Add Pin To Net: Unknown Pin: Pin C34-2
+Add Pin To Net: Unknown Pin: Pin C36-1
+Add Pin To Net: Unknown Pin: Pin C36-2
+Add Pin To Net: Unknown Pin: Pin C47-1
+Add Pin To Net: Unknown Pin: Pin C47-2
+Add Pin To Net: Unknown Pin: Pin C48-1
+Add Pin To Net: Unknown Pin: Pin C48-2
+Add Pin To Net: Unknown Pin: Pin C51-1
+Add Pin To Net: Unknown Pin: Pin C51-2
+Add Pin To Net: Unknown Pin: Pin IC1-1
+Add Pin To Net: Unknown Pin: Pin IC1-2
+Add Pin To Net: Unknown Pin: Pin IC1-3
+Add Pin To Net: Unknown Pin: Pin IC1-4
+Add Pin To Net: Unknown Pin: Pin IC1-5
+Add Pin To Net: Unknown Pin: Pin IC1-6
+Add Pin To Net: Unknown Pin: Pin IC1-7
+Add Pin To Net: Unknown Pin: Pin IC1-8
+Add Pin To Net: Unknown Pin: Pin IC2-1
+Add Pin To Net: Unknown Pin: Pin IC2-2
+Add Pin To Net: Unknown Pin: Pin IC2-3
+Add Pin To Net: Unknown Pin: Pin IC2-4
+Add Pin To Net: Unknown Pin: Pin IC2-5
+Add Pin To Net: Unknown Pin: Pin IC2-6
+Add Pin To Net: Unknown Pin: Pin IC2-8
+Add Pin To Net: Unknown Pin: Pin J1-1
+Add Pin To Net: Unknown Pin: Pin J1-2
+Add Pin To Net: Unknown Pin: Pin J1-3
+Add Pin To Net: Unknown Pin: Pin J1-4
+Add Pin To Net: Unknown Pin: Pin J1-5
+Add Pin To Net: Unknown Pin: Pin Q1-1
+Add Pin To Net: Unknown Pin: Pin Q1-2
+Add Pin To Net: Unknown Pin: Pin Q1-3
+Add Pin To Net: Unknown Pin: Pin R3-1
+Add Pin To Net: Unknown Pin: Pin R3-2
+Add Pin To Net: Unknown Pin: Pin R4-1
+Add Pin To Net: Unknown Pin: Pin R4-2
+Add Pin To Net: Unknown Pin: Pin R6-1
+Add Pin To Net: Unknown Pin: Pin R6-2
+Add Pin To Net: Unknown Pin: Pin R7-1
+Add Pin To Net: Unknown Pin: Pin R7-2
+Add Pin To Net: Unknown Pin: Pin R11-1
+Add Pin To Net: Unknown Pin: Pin R11-2
+Add Pin To Net: Unknown Pin: Pin R14-1
+Add Pin To Net: Unknown Pin: Pin R14-2
+Add Pin To Net: Unknown Pin: Pin R15-1
+Add Pin To Net: Unknown Pin: Pin R15-2
+Added Pin To Net: NetName=+3V3 Pin=U?-1
+Added Pin To Net: NetName=NetC9_2 Pin=U?-2
+Added Pin To Net: NetName=NetL1_2 Pin=U?-3
+Added Pin To Net: NetName=NetL1_2 Pin=U?-4
+Added Pin To Net: NetName=NetJ1_5 Pin=U?-6
+Added Pin To Net: NetName=NetIC2_6 Pin=U?-7
+Added Pin To Net: NetName=NetJ1_1 Pin=U?-8
+Added Pin To Net: NetName=NetR13_2 Pin=U?-9
+Added Pin To Net: NetName=NetR12_2 Pin=U?-10
+Added Pin To Net: NetName=NetR10_2 Pin=U?-12
+Added Pin To Net: NetName=NetR6_1 Pin=U?-13
+Added Pin To Net: NetName=NetIC2_2 Pin=U?-14
+Added Pin To Net: NetName=NetIC2_3 Pin=U?-15
+Added Pin To Net: NetName=NetJ1_3 Pin=U?-16
+Added Pin To Net: NetName=NetIC1_7 Pin=U?-18
+Added Pin To Net: NetName=NetIC1_3 Pin=U?-19
+Added Pin To Net: NetName=NetIC1_1 Pin=U?-20
+Added Pin To Net: NetName=NetR2_2 Pin=U?-21
+Added Pin To Net: NetName=NetIC1_2 Pin=U?-22
+Added Pin To Net: NetName=NetIC1_3 Pin=U?-23
+Added Pin To Net: NetName=NetQ1_1 Pin=U?-24
+Added Pin To Net: NetName=NetR1_2 Pin=U?-25
+Added Pin To Net: NetName=NetIC2_4 Pin=U?-26
+Added Pin To Net: NetName=NetC1_1 Pin=U?-27
+Added Pin To Net: NetName=NetC3_1 Pin=U?-28
+Added Pin To Net: NetName=+3V3 Pin=U?-29
+Added Pin To Net: NetName=+3V3 Pin=U?-30
+Added Pin To Net: NetName=NetR5_2 Pin=U?-31
+Added Pin To Net: NetName=NetR8_1 Pin=U?-32
+Added Pin To Net: NetName=GND Pin=U?-33
+Add Pin To Net: Unknown Pin: Pin Y3-1
+Add Pin To Net: Unknown Pin: Pin Y3-2
+Add Class Member: Failed to add class member : Component *1 RF_ESP8266
+Add Class Member: Failed to add class member : Component C30 ECA1HM101
+Add Class Member: Failed to add class member : Component C34 ECA1HM100
+Add Class Member: Failed to add class member : Component C36 ECA1HM220
+Add Class Member: Failed to add class member : Component C47 ECA1HM4R7
+Add Class Member: Failed to add class member : Component C48 ECA1HM4R7
+Add Class Member: Failed to add class member : Component C51 ECA1HM4R7
+Add Class Member: Failed to add class member : Component IC1 W25Q128JVSQ
+Add Class Member: Failed to add class member : Component IC2 ESP-01
+Add Class Member: Failed to add class member : Component J1 691210910004
+Add Class Member: Failed to add class member : Component Q1 DMN2041L-7
+Add Class Member: Failed to add class member : Component R3 Resistor 10k +/-1% 0805 125 mW
+Add Class Member: Failed to add class member : Component R4 Resistor 10k +/-1% 0805 125 mW
+Add Class Member: Failed to add class member : Component R6 Resistor 10k +/-1% 0805 125 mW
+Add Class Member: Failed to add class member : Component R7 Resistor 10k +/-1% 0805 125 mW
+Add Class Member: Failed to add class member : Component R11 Resistor 10k +/-1% 0805 125 mW
+Add Class Member: Failed to add class member : Component R14 Resistor 10k +/-1% 0805 125 mW
+Add Class Member: Failed to add class member : Component R15 Resistor 10k +/-1% 0805 125 mW
+Added Member To Class: ClassName=ESP8266_final Member=Component U? ESP8266EX
+Add Class Member: Failed to add class member : Component Y3 ABLS2-12.000MHZ-B4Y-T

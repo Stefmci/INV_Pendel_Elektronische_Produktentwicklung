@@ -1,0 +1,11 @@
+Change Component Comment : Designator=Y3 Old Comment=ABLS2-12.000MHZ-20-B4Y-T New Comment=ABLS2-12.000MHZ-B4Y-T
+Change component parameters: Designator = "Y3" ("Y3"); Footprint = "ABLS"; UniqueID = "\QQDUICXL" ("\QQDUICXL")
+Change component parameters (AddParameter): Name = "Arrow Part Number"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Arrow Price/Stock"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Datasheet Link"; Value = "https://abracon.com/Resonators/abls.pdf"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer_Name"; Value = "ABRACON"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer_Part_Number"; Value = "ABLS2-12.000MHZ-B4Y-T"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mouser Part Number"; Value = "815-ABLS2-12-B4YT"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.co.uk/ProductDetail/ABRACON/ABLS2-12000MHZ-B4Y-T?qs=DZ%2FvJMgWWIs6Scm%252BixQ6gw%3D%3D"; VariantName = "[No Variations]"
+Add Pin To Net: Unknown Pin: Pin U-1
+Add Pin To Net: Unknown Pin: Pin U-2

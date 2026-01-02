@@ -1,0 +1,3 @@
+Record=TopLevelDocument|FileName=ESP8266_final.SchDoc|SheetNumber=1
+Record=NoMainPathDocument|SourceDocument=ESP8266_final.SchDoc|FileName=PCB_USB_UART.SchDoc|SheetNumber=2
+Record=NoMainPathDocument|SourceDocument=ESP8266_final.SchDoc|FileName=stm32_schematic.SchDoc|SheetNumber=3

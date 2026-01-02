@@ -1,0 +1,94 @@
+Add component: Footprint Not Found CAPPR65-350-1150X800X1250
+Add component: Footprint Not Found CAPPR55-200-1100X500X1200
+Add component: Footprint Not Found CAPPR55-200-1100X500X1200
+Add component: Footprint Not Found CAPPR55-200-1100X500X1200
+Add component: Footprint Not Found CAPPR55-200-1100X500X1200
+Add component: Footprint Not Found CAPPR55-200-1100X500X1200
+Add component: Footprint Not Found SOIC127P790X216-8N
+Add component: Footprint Not Found ESP01
+Add component: Footprint Not Found 691210910004
+Add component: Footprint Not Found SOT96P240X110-3N
+Add component: Footprint Not Found RESC2013X50X35ML15T15
+Add component: Footprint Not Found RESC2013X50X35ML15T15
+Add component: Footprint Not Found RESC2013X50X35ML15T15
+Add component: Footprint Not Found RESC2013X50X35ML15T15
+Add component: Footprint Not Found RESC2013X50X35ML15T15
+Add component: Footprint Not Found RESC2013X50X35ML15T15
+Add component: Footprint Not Found RESC2013X50X35ML15T15
+Added Component: Designator=U(PCBComponent_1)
+Add component: Footprint Not Found ABLS
+Add Pin To Net: Unknown Pin: Pin C30-1
+Add Pin To Net: Unknown Pin: Pin C30-2
+Add Pin To Net: Unknown Pin: Pin C34-1
+Add Pin To Net: Unknown Pin: Pin C34-2
+Add Pin To Net: Unknown Pin: Pin C36-1
+Add Pin To Net: Unknown Pin: Pin C36-2
+Add Pin To Net: Unknown Pin: Pin C47-1
+Add Pin To Net: Unknown Pin: Pin C47-2
+Add Pin To Net: Unknown Pin: Pin C48-1
+Add Pin To Net: Unknown Pin: Pin C48-2
+Add Pin To Net: Unknown Pin: Pin C51-1
+Add Pin To Net: Unknown Pin: Pin C51-2
+Add Pin To Net: Unknown Pin: Pin IC1-1
+Add Pin To Net: Unknown Pin: Pin IC1-2
+Add Pin To Net: Unknown Pin: Pin IC1-3
+Add Pin To Net: Unknown Pin: Pin IC1-4
+Add Pin To Net: Unknown Pin: Pin IC1-5
+Add Pin To Net: Unknown Pin: Pin IC1-6
+Add Pin To Net: Unknown Pin: Pin IC1-7
+Add Pin To Net: Unknown Pin: Pin IC1-8
+Add Pin To Net: Unknown Pin: Pin IC2-1
+Add Pin To Net: Unknown Pin: Pin IC2-2
+Add Pin To Net: Unknown Pin: Pin IC2-3
+Add Pin To Net: Unknown Pin: Pin IC2-4
+Add Pin To Net: Unknown Pin: Pin IC2-5
+Add Pin To Net: Unknown Pin: Pin IC2-6
+Add Pin To Net: Unknown Pin: Pin IC2-8
+Add Pin To Net: Unknown Pin: Pin J1-1
+Add Pin To Net: Unknown Pin: Pin J1-2
+Add Pin To Net: Unknown Pin: Pin J1-3
+Add Pin To Net: Unknown Pin: Pin J1-4
+Add Pin To Net: Unknown Pin: Pin J1-5
+Add Pin To Net: Unknown Pin: Pin Q1-1
+Add Pin To Net: Unknown Pin: Pin Q1-2
+Add Pin To Net: Unknown Pin: Pin Q1-3
+Add Pin To Net: Unknown Pin: Pin R3-1
+Add Pin To Net: Unknown Pin: Pin R3-2
+Add Pin To Net: Unknown Pin: Pin R4-1
+Add Pin To Net: Unknown Pin: Pin R4-2
+Add Pin To Net: Unknown Pin: Pin R6-1
+Add Pin To Net: Unknown Pin: Pin R6-2
+Add Pin To Net: Unknown Pin: Pin R7-1
+Add Pin To Net: Unknown Pin: Pin R7-2
+Add Pin To Net: Unknown Pin: Pin R11-1
+Add Pin To Net: Unknown Pin: Pin R11-2
+Add Pin To Net: Unknown Pin: Pin R14-1
+Add Pin To Net: Unknown Pin: Pin R14-2
+Add Pin To Net: Unknown Pin: Pin R15-1
+Add Pin To Net: Unknown Pin: Pin R15-2
+Add Pin To Net: Unknown Pin: Pin U-2
+Add Pin To Net: Unknown Pin: Pin Y3-1
+Add Pin To Net: Unknown Pin: Pin Y3-2
+Added Pin To Net: NetName=NetC9_1 Pin=C9-1
+Added Pin To Net: NetName=NetC9_1 Pin=C10-2
+Added Net: Name=NetC9_1
+Add Class Member: Failed to add class member : Component C30 ECA1HM101
+Add Class Member: Failed to add class member : Component C34 ECA1HM100
+Add Class Member: Failed to add class member : Component C36 ECA1HM220
+Add Class Member: Failed to add class member : Component C47 ECA1HM4R7
+Add Class Member: Failed to add class member : Component C48 ECA1HM4R7
+Add Class Member: Failed to add class member : Component C51 ECA1HM4R7
+Add Class Member: Failed to add class member : Component IC1 W25Q128JVSQ
+Add Class Member: Failed to add class member : Component IC2 ESP-01
+Add Class Member: Failed to add class member : Component J1 691210910004
+Add Class Member: Failed to add class member : Component Q1 DMN2041L-7
+Add Class Member: Failed to add class member : Component R3 Resistor 10k +/-1% 0805 125 mW
+Add Class Member: Failed to add class member : Component R4 Resistor 10k +/-1% 0805 125 mW
+Add Class Member: Failed to add class member : Component R6 Resistor 10k +/-1% 0805 125 mW
+Add Class Member: Failed to add class member : Component R7 Resistor 10k +/-1% 0805 125 mW
+Add Class Member: Failed to add class member : Component R11 Resistor 10k +/-1% 0805 125 mW
+Add Class Member: Failed to add class member : Component R14 Resistor 10k +/-1% 0805 125 mW
+Add Class Member: Failed to add class member : Component R15 Resistor 10k +/-1% 0805 125 mW
+Added Member To Class: ClassName=ESP8266_final Member=Component U1 ESP8266EX
+Added Member To Class: ClassName=ESP8266_final Member=Component U Component_1
+Add Class Member: Failed to add class member : Component Y3 ABLS2-12.000MHZ-B4Y-T

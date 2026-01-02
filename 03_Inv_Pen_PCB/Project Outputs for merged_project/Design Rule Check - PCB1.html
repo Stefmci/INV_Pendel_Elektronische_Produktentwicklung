@@ -1,0 +1,641 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 9em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD25\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">10.06.2025</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">22:02:23</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:00</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc" class="file"><acronym title="C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc">C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">2</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">93</td></tr>
+</table>
+</td>
+</table><a name="IDYBA0IVFL0DGVLITG1W111ULAAGYBWN0JLINZICMKJFJJ3LCIDB1O"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDZVAHOV5JYAOZUMOXWFDWPMOYWJJDQXJDOYSMPEKIXABIKLOITC">Drilled SMT Pads found</a></td>
+<td class="column2">2</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">2</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDN2KMLMZGPBTMOCCQJVNBYMUQIJPMUR5FZ51B3UPIVZLKRX4V0DJD">Clearance Constraint (Gap=5mil) (All),(All)</a></td>
+<td class="column2">2</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID131UP53ESOMJLNB0EWAZKOHD4HMPWHF330PPH0KPJ3LUA5K002BF">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">2</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDS1CHTVLBCJZBP4J2M1TFYDB4AL5ITG0WTPFFQJJSYGHZ0JMIZIPD">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">14</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDFMYNH2DY1BVAJRIDYLPPTPWJNFKYEEMPDSYGQTHSYFEQJTQP30Y">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDWKU2JBFJIS0AMG4KPBUYHWVYJBCIKHXVFAEO31H4PBK1KSAWVA5O">Width Constraint (Min=10mil) (Max=30mil) (Preferred=10mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDDDZYAOSHC0EPPQIGGLCLXUN1DKINXZ5KI3DNEJHFJ3WEISCW2UBC">Routing Topology Rule(Topology=Shortest) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDZZJSXUG5W1DJCRZEJFHWHM5YXILXX1KK2OIGBUF4OTZ1YEDXW2VM">Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID03LS4WPOMDSODFVLU2IV1GK5EOOS201BCJML1HVT0CGXEIO5NDI">Hole Size Constraint (Min=1mil) (Max=300mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID4V5AHWKM22DKJGXQSW51T4HGUPUALAQNT3UI0QF4TQA3DFB1GRDN">Hole To Hole Clearance (Gap=10mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID3MAFP2FV0FB4KJJXFFYOOUPIRMOFRFRSRR0ZGQIBURKTS1N3SRTJ">Minimum Solder Mask Sliver (Gap=5mil) (All),(All)</a></td>
+<td class="column2">48</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDN25W0WG31UFHIW5R0MNE2P4OMEMYWQ35ZRKXTHMPROY1JNO0X2ZD">Silk To Solder Mask (Clearance=5mil) (IsPad),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID5UWRFOVQUTX4BMDB11S0RJP4MPPRUHREG4MGHCCLKLXI4LOKEUTB">Silk to Silk (Clearance=5mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDYANOWMBOUC5HL5MLGVV1I3NPSFX1X1F0SXIFOFFNJUY4QKGLNQTK">Net Antennae (Tolerance=0mil) (All)</a></td>
+<td class="column2">27</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDY1NXFG3BXQ5OFKQV3B02JXEPHMWG3NDTWNX1I2L5NXJE2LBXPIL">Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">93</td>
+</tr>
+</table><br><a name="IDFR2RQCKCX3IZLCC0R5E0ZSNGBOOBWDUNKH3RJ3EFPZDOEG32IJN"><h2>Warnings</h2></a><a name="IDZVAHOV5JYAOZUMOXWFDWPMOYWJJDQXJDOYSMPEKIXABIKLOITC"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="warning">Drilled SMT Pads found</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1371.536mil|Location2.X=1436.496mil|Location1.Y=1800.395mil|Location2.Y=1843.701mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1371.536mil|Location2.X=1436.496mil|Location1.Y=1800.395mil|Location2.Y=1843.701mil|Absolute=True">Pad J9-2(1404.016mil,1822.048mil) on Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1371.536mil|Location2.X=1436.496mil|Location1.Y=2156.298mil|Location2.Y=2199.606mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1371.536mil|Location2.X=1436.496mil|Location1.Y=2156.298mil|Location2.Y=2199.606mil|Absolute=True">Pad J9-1(1404.016mil,2177.952mil) on Bottom Layer</acronym></a></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a href="dxpprocess://PCB:RunConvertDrilledSMTPadsToMultilayer?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;" class="callback"><acronym title="dxpprocess://PCB:RunConvertDrilledSMTPadsToMultilayer?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;">Convert Found Drilled SMT Pads to MultiLayer Pads</acronym></a><a name="IDN2KMLMZGPBTMOCCQJVNBYMUQIJPMUR5FZ51B3UPIVZLKRX4V0DJD"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Clearance Constraint (Gap=5mil) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7605.818mil|Location2.X=7610.151mil|Location1.Y=2052.748mil|Location2.Y=2057.081mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7605.818mil|Location2.X=7610.151mil|Location1.Y=2052.748mil|Location2.Y=2057.081mil|Absolute=True">Clearance Constraint: (Collision &lt; 5mil) Between Area Fill (7671.335mil,1976.164mil) (7706.735mil,2169.064mil) on Top Layer And Pad RF-2(7600.485mil,2072.614mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7590.418mil|Location2.X=7594.751mil|Location1.Y=2070.448mil|Location2.Y=2074.781mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7590.418mil|Location2.X=7594.751mil|Location1.Y=2070.448mil|Location2.Y=2074.781mil|Absolute=True">Clearance Constraint: (Collision &lt; 5mil) Between Area Fill (7671.335mil,1976.164mil) (7706.735mil,2169.064mil) on Top Layer And Track (7567.386mil,2072.614mil)(7600.485mil,2072.614mil) on Top Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="ID131UP53ESOMJLNB0EWAZKOHD4HMPWHF330PPH0KPJ3LUA5K002BF"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Short-Circuit Constraint (Allowed=No) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7579.761mil|Location2.X=7621.208mil|Location1.Y=2051.891mil|Location2.Y=2093.338mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7579.761mil|Location2.X=7621.208mil|Location1.Y=2051.891mil|Location2.Y=2093.338mil|Absolute=True">Short-Circuit Constraint: Between Area Fill (7671.335mil,1976.164mil) (7706.735mil,2169.064mil) on Top Layer And Pad RF-2(7600.485mil,2072.614mil) on Top Layer Location : [X = 7600.485mil][Y = 2072.614mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7583.621mil|Location2.X=7624.521mil|Location1.Y=2052.164mil|Location2.Y=2093.065mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7583.621mil|Location2.X=7624.521mil|Location1.Y=2052.164mil|Location2.Y=2093.065mil|Absolute=True">Short-Circuit Constraint: Between Area Fill (7671.335mil,1976.164mil) (7706.735mil,2169.064mil) on Top Layer And Track (7567.386mil,2072.614mil)(7600.485mil,2072.614mil) on Top Layer Location : [X = 7604.071mil][Y = 2072.614mil]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDS1CHTVLBCJZBP4J2M1TFYDB4AL5ITG0WTPFFQJJSYGHZ0JMIZIPD"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Un-Routed Net Constraint ( (All) )</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1304.016mil|Location2.X=1504.016mil|Location1.Y=2077.952mil|Location2.Y=2278.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1304.016mil|Location2.X=1504.016mil|Location1.Y=2077.952mil|Location2.Y=2278.937mil|Absolute=True">Un-Routed Net Constraint: Net NetJ9_1 Between Pad J9-1(1404.016mil,2177.952mil) on Bottom Layer And Track (1286.891mil,2178.937mil)(1404.016mil,2178.937mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1245.552mil|Location2.X=1436.496mil|Location1.Y=1800.395mil|Location2.Y=1843.701mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1245.552mil|Location2.X=1436.496mil|Location1.Y=1800.395mil|Location2.Y=1843.701mil|Absolute=True">Un-Routed Net Constraint: Net NetJ9_1 Between Pad J9-4(1285.906mil,1822.048mil) on Multi-Layer And Pad J9-2(1404.016mil,1822.048mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1311mil|Location2.X=1559mil|Location1.Y=3496mil|Location2.Y=3744mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1311mil|Location2.X=1559mil|Location1.Y=3496mil|Location2.Y=3744mil|Absolute=True">Un-Routed Net Constraint: Via (1435mil,3620mil) from Top Layer to Bottom Layer Dead Copper - Net Not Assigned.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4576mil|Location2.X=4824mil|Location1.Y=3696mil|Location2.Y=3944mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4576mil|Location2.X=4824mil|Location1.Y=3696mil|Location2.Y=3944mil|Absolute=True">Un-Routed Net Constraint: Via (4700mil,3820mil) from Top Layer to Bottom Layer Dead Copper - Net Not Assigned.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4596mil|Location2.X=4844mil|Location1.Y=1011mil|Location2.Y=1259mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4596mil|Location2.X=4844mil|Location1.Y=1011mil|Location2.Y=1259mil|Absolute=True">Un-Routed Net Constraint: Via (4720mil,1135mil) from Top Layer to Bottom Layer Dead Copper - Net Not Assigned.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6411mil|Location2.X=6659mil|Location1.Y=3171mil|Location2.Y=3419mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6411mil|Location2.X=6659mil|Location1.Y=3171mil|Location2.Y=3419mil|Absolute=True">Un-Routed Net Constraint: Via (6535mil,3295mil) from Top Layer to Bottom Layer Dead Copper - Net Not Assigned.</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7526.102mil|Location2.X=7562.102mil|Location1.Y=1527.795mil|Location2.Y=1618.795mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7526.102mil|Location2.X=7562.102mil|Location1.Y=1527.795mil|Location2.Y=1618.795mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Via (7544.102mil,1545.795mil) from Top Layer to Bottom Layer And Via (7544.102mil,1600.795mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7526.102mil|Location2.X=7562.102mil|Location1.Y=1582.795mil|Location2.Y=1668.795mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7526.102mil|Location2.X=7562.102mil|Location1.Y=1582.795mil|Location2.Y=1668.795mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Via (7544.102mil,1600.795mil) from Top Layer to Bottom Layer And Via (7544.102mil,1650.795mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7526.102mil|Location2.X=7562.102mil|Location1.Y=1632.795mil|Location2.Y=1723.795mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7526.102mil|Location2.X=7562.102mil|Location1.Y=1632.795mil|Location2.Y=1723.795mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Via (7544.102mil,1650.795mil) from Top Layer to Bottom Layer And Via (7544.102mil,1705.795mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7526.102mil|Location2.X=7563mil|Location1.Y=1687.795mil|Location2.Y=1778mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7526.102mil|Location2.X=7563mil|Location1.Y=1687.795mil|Location2.Y=1778mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Via (7544.102mil,1705.795mil) from Top Layer to Bottom Layer And Via (7545mil,1760mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7526.102mil|Location2.X=7563mil|Location1.Y=2167.795mil|Location2.Y=2258mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7526.102mil|Location2.X=7563mil|Location1.Y=2167.795mil|Location2.Y=2258mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Via (7544.102mil,2185.795mil) from Top Layer to Bottom Layer And Via (7545mil,2240mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7527mil|Location2.X=7563mil|Location1.Y=1742mil|Location2.Y=1833mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7527mil|Location2.X=7563mil|Location1.Y=1742mil|Location2.Y=1833mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Via (7545mil,1760mil) from Top Layer to Bottom Layer And Via (7545mil,1815mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7527mil|Location2.X=7563mil|Location1.Y=1797mil|Location2.Y=1883mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7527mil|Location2.X=7563mil|Location1.Y=1797mil|Location2.Y=1883mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Via (7545mil,1815mil) from Top Layer to Bottom Layer And Via (7545mil,1865mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7527mil|Location2.X=7563mil|Location1.Y=1847mil|Location2.Y=1938mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7527mil|Location2.X=7563mil|Location1.Y=1847mil|Location2.Y=1938mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Via (7545mil,1865mil) from Top Layer to Bottom Layer And Via (7545mil,1920mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="ID3MAFP2FV0FB4KJJXFFYOOUPIRMOFRFRSRR0ZGQIBURKTS1N3SRTJ"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Minimum Solder Mask Sliver (Gap=5mil) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2852.254mil|Location2.X=2858.504mil|Location1.Y=3313.804mil|Location2.Y=3320.054mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2852.254mil|Location2.X=2858.504mil|Location1.Y=3313.804mil|Location2.Y=3320.054mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (3.811mil &lt; 5mil) Between Pad C25-1(2824.804mil,3289.37mil) on Top Layer And Pad C25-2(2824.804mil,3344.488mil) on Top Layer [Top Solder] Mask Sliver [3.811mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3137.45mil|Location2.X=3143.7mil|Location1.Y=3366.875mil|Location2.Y=3373.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3137.45mil|Location2.X=3143.7mil|Location1.Y=3366.875mil|Location2.Y=3373.125mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (3.813mil &lt; 5mil) Between Pad C26-1(3110mil,3342.44mil) on Top Layer And Pad C26-2(3110mil,3397.56mil) on Top Layer [Top Solder] Mask Sliver [3.813mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7026.875mil|Location2.X=7033.125mil|Location1.Y=1712.363mil|Location2.Y=1718.613mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7026.875mil|Location2.X=7033.125mil|Location1.Y=1712.363mil|Location2.Y=1718.613mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (3.813mil &lt; 5mil) Between Pad C5-1(6994.566mil,1749.999mil) on Top Layer And Pad C5-2(7065.434mil,1749.999mil) on Top Layer [Top Solder] Mask Sliver [3.813mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7083.876mil|Location2.X=7090.126mil|Location1.Y=1611.363mil|Location2.Y=1617.613mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7083.876mil|Location2.X=7090.126mil|Location1.Y=1611.363mil|Location2.Y=1617.613mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (3.813mil &lt; 5mil) Between Pad C6-1(7051.567mil,1649mil) on Top Layer And Pad C6-2(7122.435mil,1649mil) on Top Layer [Top Solder] Mask Sliver [3.813mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7061.875mil|Location2.X=7068.125mil|Location1.Y=2251.769mil|Location2.Y=2258.019mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7061.875mil|Location2.X=7068.125mil|Location1.Y=2251.769mil|Location2.Y=2258.019mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (3.788mil &lt; 5mil) Between Pad R3-2(7080mil,2280.473mil) on Top Layer And Via (7065mil,2235mil) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [3.788mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7120.521mil|Location2.X=7126.771mil|Location1.Y=1977.821mil|Location2.Y=1984.071mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7120.521mil|Location2.X=7126.771mil|Location1.Y=1977.821mil|Location2.Y=1984.071mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.843mil &lt; 5mil) Between Pad U1-1(7132.504mil,1971.103mil) on Top Layer And Pad U1-2(7132.504mil,1990.789mil) on Top Layer [Top Solder] Mask Sliver [1.843mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7112.647mil|Location2.X=7120.203mil|Location1.Y=1958.861mil|Location2.Y=1966.354mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7112.647mil|Location2.X=7120.203mil|Location1.Y=1958.861mil|Location2.Y=1966.354mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (4.428mil &lt; 5mil) Between Pad U1-1(7132.504mil,1971.103mil) on Top Layer And Pad U1-32(7107.898mil,1946.497mil) on Top Layer [Top Solder] Mask Sliver [4.428mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7075.245mil|Location2.X=7081.495mil|Location1.Y=2139.238mil|Location2.Y=2145.488mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7075.245mil|Location2.X=7081.495mil|Location1.Y=2139.238mil|Location2.Y=2145.488mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.841mil &lt; 5mil) Between Pad U1-10(7088.212mil,2133.505mil) on Top Layer And Pad U1-11(7068.528mil,2133.505mil) on Top Layer [Top Solder] Mask Sliver [1.841mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7094.93mil|Location2.X=7101.18mil|Location1.Y=2139.238mil|Location2.Y=2145.488mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7094.93mil|Location2.X=7101.18mil|Location1.Y=2139.238mil|Location2.Y=2145.488mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.843mil &lt; 5mil) Between Pad U1-10(7088.212mil,2133.505mil) on Top Layer And Pad U1-9(7107.898mil,2133.505mil) on Top Layer [Top Solder] Mask Sliver [1.843mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7055.56mil|Location2.X=7061.81mil|Location1.Y=2139.238mil|Location2.Y=2145.488mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7055.56mil|Location2.X=7061.81mil|Location1.Y=2139.238mil|Location2.Y=2145.488mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.843mil &lt; 5mil) Between Pad U1-11(7068.528mil,2133.505mil) on Top Layer And Pad U1-12(7048.842mil,2133.505mil) on Top Layer [Top Solder] Mask Sliver [1.843mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7035.875mil|Location2.X=7042.125mil|Location1.Y=2139.238mil|Location2.Y=2145.488mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7035.875mil|Location2.X=7042.125mil|Location1.Y=2139.238mil|Location2.Y=2145.488mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.841mil &lt; 5mil) Between Pad U1-12(7048.842mil,2133.505mil) on Top Layer And Pad U1-13(7029.158mil,2133.505mil) on Top Layer [Top Solder] Mask Sliver [1.841mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7016.19mil|Location2.X=7022.44mil|Location1.Y=2139.238mil|Location2.Y=2145.488mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7016.19mil|Location2.X=7022.44mil|Location1.Y=2139.238mil|Location2.Y=2145.488mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.843mil &lt; 5mil) Between Pad U1-13(7029.158mil,2133.505mil) on Top Layer And Pad U1-14(7009.472mil,2133.505mil) on Top Layer [Top Solder] Mask Sliver [1.843mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6996.505mil|Location2.X=7002.755mil|Location1.Y=2139.238mil|Location2.Y=2145.488mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6996.505mil|Location2.X=7002.755mil|Location1.Y=2139.238mil|Location2.Y=2145.488mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.841mil &lt; 5mil) Between Pad U1-14(7009.472mil,2133.505mil) on Top Layer And Pad U1-15(6989.788mil,2133.505mil) on Top Layer [Top Solder] Mask Sliver [1.841mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6976.82mil|Location2.X=6983.07mil|Location1.Y=2139.238mil|Location2.Y=2145.488mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6976.82mil|Location2.X=6983.07mil|Location1.Y=2139.238mil|Location2.Y=2145.488mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.843mil &lt; 5mil) Between Pad U1-15(6989.788mil,2133.505mil) on Top Layer And Pad U1-16(6970.102mil,2133.505mil) on Top Layer [Top Solder] Mask Sliver [1.843mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6959.103mil|Location2.X=6966.659mil|Location1.Y=2112.405mil|Location2.Y=2119.897mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6959.103mil|Location2.X=6966.659mil|Location1.Y=2112.405mil|Location2.Y=2119.897mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (4.428mil &lt; 5mil) Between Pad U1-16(6970.102mil,2133.505mil) on Top Layer And Pad U1-17(6945.496mil,2108.899mil) on Top Layer [Top Solder] Mask Sliver [4.428mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6933.513mil|Location2.X=6939.763mil|Location1.Y=2095.93mil|Location2.Y=2102.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6933.513mil|Location2.X=6939.763mil|Location1.Y=2095.93mil|Location2.Y=2102.18mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.843mil &lt; 5mil) Between Pad U1-17(6945.496mil,2108.899mil) on Top Layer And Pad U1-18(6945.496mil,2089.213mil) on Top Layer [Top Solder] Mask Sliver [1.843mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6933.513mil|Location2.X=6939.763mil|Location1.Y=2076.245mil|Location2.Y=2082.495mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6933.513mil|Location2.X=6939.763mil|Location1.Y=2076.245mil|Location2.Y=2082.495mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.841mil &lt; 5mil) Between Pad U1-18(6945.496mil,2089.213mil) on Top Layer And Pad U1-19(6945.496mil,2069.529mil) on Top Layer [Top Solder] Mask Sliver [1.841mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6933.513mil|Location2.X=6939.763mil|Location1.Y=2056.561mil|Location2.Y=2062.811mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6933.513mil|Location2.X=6939.763mil|Location1.Y=2056.561mil|Location2.Y=2062.811mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.843mil &lt; 5mil) Between Pad U1-19(6945.496mil,2069.529mil) on Top Layer And Pad U1-20(6945.496mil,2049.843mil) on Top Layer [Top Solder] Mask Sliver [1.843mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7120.521mil|Location2.X=7126.771mil|Location1.Y=1997.505mil|Location2.Y=2003.755mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7120.521mil|Location2.X=7126.771mil|Location1.Y=1997.505mil|Location2.Y=2003.755mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.841mil &lt; 5mil) Between Pad U1-2(7132.504mil,1990.789mil) on Top Layer And Pad U1-3(7132.504mil,2010.473mil) on Top Layer [Top Solder] Mask Sliver [1.841mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6933.513mil|Location2.X=6939.763mil|Location1.Y=2036.876mil|Location2.Y=2043.126mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6933.513mil|Location2.X=6939.763mil|Location1.Y=2036.876mil|Location2.Y=2043.126mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.841mil &lt; 5mil) Between Pad U1-20(6945.496mil,2049.843mil) on Top Layer And Pad U1-21(6945.496mil,2030.159mil) on Top Layer [Top Solder] Mask Sliver [1.841mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6933.513mil|Location2.X=6939.763mil|Location1.Y=2017.19mil|Location2.Y=2023.44mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6933.513mil|Location2.X=6939.763mil|Location1.Y=2017.19mil|Location2.Y=2023.44mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.843mil &lt; 5mil) Between Pad U1-21(6945.496mil,2030.159mil) on Top Layer And Pad U1-22(6945.496mil,2010.473mil) on Top Layer [Top Solder] Mask Sliver [1.843mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6933.513mil|Location2.X=6939.763mil|Location1.Y=1997.505mil|Location2.Y=2003.755mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6933.513mil|Location2.X=6939.763mil|Location1.Y=1997.505mil|Location2.Y=2003.755mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.841mil &lt; 5mil) Between Pad U1-22(6945.496mil,2010.473mil) on Top Layer And Pad U1-23(6945.496mil,1990.789mil) on Top Layer [Top Solder] Mask Sliver [1.841mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6933.513mil|Location2.X=6939.763mil|Location1.Y=1977.821mil|Location2.Y=1984.071mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6933.513mil|Location2.X=6939.763mil|Location1.Y=1977.821mil|Location2.Y=1984.071mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.843mil &lt; 5mil) Between Pad U1-23(6945.496mil,1990.789mil) on Top Layer And Pad U1-24(6945.496mil,1971.103mil) on Top Layer [Top Solder] Mask Sliver [1.843mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6959.103mil|Location2.X=6966.595mil|Location1.Y=1960.104mil|Location2.Y=1967.659mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6959.103mil|Location2.X=6966.595mil|Location1.Y=1960.104mil|Location2.Y=1967.659mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (4.428mil &lt; 5mil) Between Pad U1-24(6945.496mil,1971.103mil) on Top Layer And Pad U1-25(6970.102mil,1946.497mil) on Top Layer [Top Solder] Mask Sliver [4.428mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6976.82mil|Location2.X=6983.07mil|Location1.Y=1952.23mil|Location2.Y=1958.48mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6976.82mil|Location2.X=6983.07mil|Location1.Y=1952.23mil|Location2.Y=1958.48mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.843mil &lt; 5mil) Between Pad U1-25(6970.102mil,1946.497mil) on Top Layer And Pad U1-26(6989.788mil,1946.497mil) on Top Layer [Top Solder] Mask Sliver [1.843mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6996.505mil|Location2.X=7002.755mil|Location1.Y=1952.23mil|Location2.Y=1958.48mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6996.505mil|Location2.X=7002.755mil|Location1.Y=1952.23mil|Location2.Y=1958.48mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.841mil &lt; 5mil) Between Pad U1-26(6989.788mil,1946.497mil) on Top Layer And Pad U1-27(7009.472mil,1946.497mil) on Top Layer [Top Solder] Mask Sliver [1.841mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7016.19mil|Location2.X=7022.44mil|Location1.Y=1952.23mil|Location2.Y=1958.48mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7016.19mil|Location2.X=7022.44mil|Location1.Y=1952.23mil|Location2.Y=1958.48mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.843mil &lt; 5mil) Between Pad U1-27(7009.472mil,1946.497mil) on Top Layer And Pad U1-28(7029.158mil,1946.497mil) on Top Layer [Top Solder] Mask Sliver [1.843mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7035.875mil|Location2.X=7042.125mil|Location1.Y=1952.23mil|Location2.Y=1958.48mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7035.875mil|Location2.X=7042.125mil|Location1.Y=1952.23mil|Location2.Y=1958.48mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.841mil &lt; 5mil) Between Pad U1-28(7029.158mil,1946.497mil) on Top Layer And Pad U1-29(7048.842mil,1946.497mil) on Top Layer [Top Solder] Mask Sliver [1.841mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7055.56mil|Location2.X=7061.81mil|Location1.Y=1952.23mil|Location2.Y=1958.48mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7055.56mil|Location2.X=7061.81mil|Location1.Y=1952.23mil|Location2.Y=1958.48mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.843mil &lt; 5mil) Between Pad U1-29(7048.842mil,1946.497mil) on Top Layer And Pad U1-30(7068.528mil,1946.497mil) on Top Layer [Top Solder] Mask Sliver [1.843mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7120.521mil|Location2.X=7126.771mil|Location1.Y=2017.19mil|Location2.Y=2023.44mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7120.521mil|Location2.X=7126.771mil|Location1.Y=2017.19mil|Location2.Y=2023.44mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.843mil &lt; 5mil) Between Pad U1-3(7132.504mil,2010.473mil) on Top Layer And Pad U1-4(7132.504mil,2030.159mil) on Top Layer [Top Solder] Mask Sliver [1.843mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7075.245mil|Location2.X=7081.495mil|Location1.Y=1952.23mil|Location2.Y=1958.48mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7075.245mil|Location2.X=7081.495mil|Location1.Y=1952.23mil|Location2.Y=1958.48mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.841mil &lt; 5mil) Between Pad U1-30(7068.528mil,1946.497mil) on Top Layer And Pad U1-31(7088.212mil,1946.497mil) on Top Layer [Top Solder] Mask Sliver [1.841mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7094.93mil|Location2.X=7101.18mil|Location1.Y=1952.23mil|Location2.Y=1958.48mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7094.93mil|Location2.X=7101.18mil|Location1.Y=1952.23mil|Location2.Y=1958.48mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.843mil &lt; 5mil) Between Pad U1-31(7088.212mil,1946.497mil) on Top Layer And Pad U1-32(7107.898mil,1946.497mil) on Top Layer [Top Solder] Mask Sliver [1.843mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7120.521mil|Location2.X=7126.771mil|Location1.Y=2036.876mil|Location2.Y=2043.126mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7120.521mil|Location2.X=7126.771mil|Location1.Y=2036.876mil|Location2.Y=2043.126mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.841mil &lt; 5mil) Between Pad U1-4(7132.504mil,2030.159mil) on Top Layer And Pad U1-5(7132.504mil,2049.843mil) on Top Layer [Top Solder] Mask Sliver [1.841mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7120.521mil|Location2.X=7126.771mil|Location1.Y=2056.561mil|Location2.Y=2062.811mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7120.521mil|Location2.X=7126.771mil|Location1.Y=2056.561mil|Location2.Y=2062.811mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.843mil &lt; 5mil) Between Pad U1-5(7132.504mil,2049.843mil) on Top Layer And Pad U1-6(7132.504mil,2069.529mil) on Top Layer [Top Solder] Mask Sliver [1.843mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7120.521mil|Location2.X=7126.771mil|Location1.Y=2076.245mil|Location2.Y=2082.495mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7120.521mil|Location2.X=7126.771mil|Location1.Y=2076.245mil|Location2.Y=2082.495mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.841mil &lt; 5mil) Between Pad U1-6(7132.504mil,2069.529mil) on Top Layer And Pad U1-7(7132.504mil,2089.213mil) on Top Layer [Top Solder] Mask Sliver [1.841mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7120.521mil|Location2.X=7126.771mil|Location1.Y=2095.93mil|Location2.Y=2102.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7120.521mil|Location2.X=7126.771mil|Location1.Y=2095.93mil|Location2.Y=2102.18mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (1.843mil &lt; 5mil) Between Pad U1-7(7132.504mil,2089.213mil) on Top Layer And Pad U1-8(7132.504mil,2108.899mil) on Top Layer [Top Solder] Mask Sliver [1.843mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7112.647mil|Location2.X=7120.139mil|Location1.Y=2113.647mil|Location2.Y=2121.203mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7112.647mil|Location2.X=7120.139mil|Location1.Y=2113.647mil|Location2.Y=2121.203mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (4.428mil &lt; 5mil) Between Pad U1-8(7132.504mil,2108.899mil) on Top Layer And Pad U1-9(7107.898mil,2133.505mil) on Top Layer [Top Solder] Mask Sliver [4.428mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2457.505mil|Location2.X=2463.755mil|Location1.Y=3343.332mil|Location2.Y=3349.582mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2457.505mil|Location2.X=2463.755mil|Location1.Y=3343.332mil|Location2.Y=3349.582mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (3.37mil &lt; 5mil) Between Via (2440.945mil,3346.457mil) from Top Layer to Bottom Layer And Via (2480.315mil,3346.457mil) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [3.37mil] / [Bottom Solder] Mask Sliver [3.37mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2576.875mil|Location2.X=2583.125mil|Location1.Y=3016.875mil|Location2.Y=3023.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2576.875mil|Location2.X=2583.125mil|Location1.Y=3016.875mil|Location2.Y=3023.125mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (4mil &lt; 5mil) Between Via (2560mil,3020mil) from Top Layer to Bottom Layer And Via (2600mil,3020mil) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [4mil] / [Bottom Solder] Mask Sliver [4mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2896.875mil|Location2.X=2903.125mil|Location1.Y=1816.875mil|Location2.Y=1823.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2896.875mil|Location2.X=2903.125mil|Location1.Y=1816.875mil|Location2.Y=1823.125mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (4mil &lt; 5mil) Between Via (2900mil,1800mil) from Top Layer to Bottom Layer And Via (2900mil,1840mil) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [4mil] / [Bottom Solder] Mask Sliver [4mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4196.875mil|Location2.X=4203.125mil|Location1.Y=3656.875mil|Location2.Y=3663.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4196.875mil|Location2.X=4203.125mil|Location1.Y=3656.875mil|Location2.Y=3663.125mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (4mil &lt; 5mil) Between Via (4200mil,3640mil) from Top Layer to Bottom Layer And Via (4200mil,3680mil) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [4mil] / [Bottom Solder] Mask Sliver [4mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4656.875mil|Location2.X=4663.125mil|Location1.Y=2116.875mil|Location2.Y=2123.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4656.875mil|Location2.X=4663.125mil|Location1.Y=2116.875mil|Location2.Y=2123.125mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (4mil &lt; 5mil) Between Via (4640mil,2120mil) from Top Layer to Bottom Layer And Via (4680mil,2120mil) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [4mil] / [Bottom Solder] Mask Sliver [4mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4696.875mil|Location2.X=4703.125mil|Location1.Y=2116.875mil|Location2.Y=2123.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4696.875mil|Location2.X=4703.125mil|Location1.Y=2116.875mil|Location2.Y=2123.125mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (4mil &lt; 5mil) Between Via (4680mil,2120mil) from Top Layer to Bottom Layer And Via (4720mil,2120mil) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [4mil] / [Bottom Solder] Mask Sliver [4mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5116.875mil|Location2.X=5123.125mil|Location1.Y=2176.875mil|Location2.Y=2183.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5116.875mil|Location2.X=5123.125mil|Location1.Y=2176.875mil|Location2.Y=2183.125mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (4mil &lt; 5mil) Between Via (5100mil,2180mil) from Top Layer to Bottom Layer And Via (5140mil,2180mil) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [4mil] / [Bottom Solder] Mask Sliver [4mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5436.875mil|Location2.X=5443.125mil|Location1.Y=2956.875mil|Location2.Y=2963.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5436.875mil|Location2.X=5443.125mil|Location1.Y=2956.875mil|Location2.Y=2963.125mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (4mil &lt; 5mil) Between Via (5440mil,2940mil) from Top Layer to Bottom Layer And Via (5440mil,2980mil) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [4mil] / [Bottom Solder] Mask Sliver [4mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5476.875mil|Location2.X=5483.125mil|Location1.Y=2196.875mil|Location2.Y=2203.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5476.875mil|Location2.X=5483.125mil|Location1.Y=2196.875mil|Location2.Y=2203.125mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (4mil &lt; 5mil) Between Via (5480mil,2180mil) from Top Layer to Bottom Layer And Via (5480mil,2220mil) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [4mil] / [Bottom Solder] Mask Sliver [4mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6859.375mil|Location2.X=6865.625mil|Location1.Y=1909.375mil|Location2.Y=1915.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6859.375mil|Location2.X=6865.625mil|Location1.Y=1909.375mil|Location2.Y=1915.625mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (2.079mil &lt; 5mil) Between Via (6855mil,1895mil) from Top Layer to Bottom Layer And Via (6870mil,1930mil) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [2.079mil] / [Bottom Solder] Mask Sliver [2.079mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6911.875mil|Location2.X=6919.365mil|Location1.Y=2203.057mil|Location2.Y=2210.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6911.875mil|Location2.X=6919.365mil|Location1.Y=2203.057mil|Location2.Y=2210.625mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (3.051mil &lt; 5mil) Between Via (6900mil,2195mil) from Top Layer to Bottom Layer And Via (6930mil,2220mil) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [3.051mil] / [Bottom Solder] Mask Sliver [3.051mil]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDYANOWMBOUC5HL5MLGVV1I3NPSFX1X1F0SXIFOFFNJUY4QKGLNQTK"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Net Antennae (Tolerance=0mil) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7021.658mil|Location2.X=7064.496mil|Location1.Y=2022.658mil|Location2.Y=2088.881mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7021.658mil|Location2.X=7064.496mil|Location1.Y=2022.658mil|Location2.Y=2088.881mil|Absolute=True">Net Antennae: Via (7039mil,2040.001mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7467.602mil|Location2.X=7519.491mil|Location1.Y=2109.295mil|Location2.Y=2190.805mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7467.602mil|Location2.X=7519.491mil|Location1.Y=2109.295mil|Location2.Y=2190.805mil|Absolute=True">Net Antennae: Via (7489.102mil,2130.795mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7468.5mil|Location2.X=7520.389mil|Location1.Y=2053.5mil|Location2.Y=2135.01mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7468.5mil|Location2.X=7520.389mil|Location1.Y=2053.5mil|Location2.Y=2135.01mil|Absolute=True">Net Antennae: Via (7490mil,2075mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7468.5mil|Location2.X=7520.389mil|Location1.Y=2163.5mil|Location2.Y=2245.01mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7468.5mil|Location2.X=7520.389mil|Location1.Y=2163.5mil|Location2.Y=2245.01mil|Absolute=True">Net Antennae: Via (7490mil,2185mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7477.602mil|Location2.X=7529.491mil|Location1.Y=1494.295mil|Location2.Y=1575.804mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7477.602mil|Location2.X=7529.491mil|Location1.Y=1494.295mil|Location2.Y=1575.804mil|Absolute=True">Net Antennae: Via (7499.102mil,1515.795mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7477.602mil|Location2.X=7529.491mil|Location1.Y=1549.295mil|Location2.Y=1630.804mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7477.602mil|Location2.X=7529.491mil|Location1.Y=1549.295mil|Location2.Y=1630.804mil|Absolute=True">Net Antennae: Via (7499.102mil,1570.795mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7477.602mil|Location2.X=7529.491mil|Location1.Y=1599.295mil|Location2.Y=1680.804mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7477.602mil|Location2.X=7529.491mil|Location1.Y=1599.295mil|Location2.Y=1680.804mil|Absolute=True">Net Antennae: Via (7499.102mil,1620.795mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7477.602mil|Location2.X=7529.491mil|Location1.Y=1654.295mil|Location2.Y=1735.804mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7477.602mil|Location2.X=7529.491mil|Location1.Y=1654.295mil|Location2.Y=1735.804mil|Absolute=True">Net Antennae: Via (7499.102mil,1675.795mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7479.178mil|Location2.X=7531.067mil|Location1.Y=2003.885mil|Location2.Y=2085.394mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7479.178mil|Location2.X=7531.067mil|Location1.Y=2003.885mil|Location2.Y=2085.394mil|Absolute=True">Net Antennae: Via (7500.678mil,2025.385mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7478.5mil|Location2.X=7530.389mil|Location1.Y=1708.5mil|Location2.Y=1790.01mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7478.5mil|Location2.X=7530.389mil|Location1.Y=1708.5mil|Location2.Y=1790.01mil|Absolute=True">Net Antennae: Via (7500mil,1730mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7478.5mil|Location2.X=7530.389mil|Location1.Y=1763.5mil|Location2.Y=1845.01mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7478.5mil|Location2.X=7530.389mil|Location1.Y=1763.5mil|Location2.Y=1845.01mil|Absolute=True">Net Antennae: Via (7500mil,1785mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7478.5mil|Location2.X=7530.389mil|Location1.Y=1813.5mil|Location2.Y=1895.01mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7478.5mil|Location2.X=7530.389mil|Location1.Y=1813.5mil|Location2.Y=1895.01mil|Absolute=True">Net Antennae: Via (7500mil,1835mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7478.5mil|Location2.X=7530.389mil|Location1.Y=1868.5mil|Location2.Y=1950.01mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7478.5mil|Location2.X=7530.389mil|Location1.Y=1868.5mil|Location2.Y=1950.01mil|Absolute=True">Net Antennae: Via (7500mil,1890mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7484.178mil|Location2.X=7536.067mil|Location1.Y=1933.885mil|Location2.Y=2015.395mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7484.178mil|Location2.X=7536.067mil|Location1.Y=1933.885mil|Location2.Y=2015.395mil|Absolute=True">Net Antennae: Via (7505.678mil,1955.385mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7522.602mil|Location2.X=7574.491mil|Location1.Y=1524.295mil|Location2.Y=1605.804mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7522.602mil|Location2.X=7574.491mil|Location1.Y=1524.295mil|Location2.Y=1605.804mil|Absolute=True">Net Antennae: Via (7544.102mil,1545.795mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7522.602mil|Location2.X=7574.491mil|Location1.Y=1579.295mil|Location2.Y=1660.804mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7522.602mil|Location2.X=7574.491mil|Location1.Y=1579.295mil|Location2.Y=1660.804mil|Absolute=True">Net Antennae: Via (7544.102mil,1600.795mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7522.602mil|Location2.X=7574.491mil|Location1.Y=1629.295mil|Location2.Y=1710.804mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7522.602mil|Location2.X=7574.491mil|Location1.Y=1629.295mil|Location2.Y=1710.804mil|Absolute=True">Net Antennae: Via (7544.102mil,1650.795mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7522.602mil|Location2.X=7574.491mil|Location1.Y=1684.295mil|Location2.Y=1765.804mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7522.602mil|Location2.X=7574.491mil|Location1.Y=1684.295mil|Location2.Y=1765.804mil|Absolute=True">Net Antennae: Via (7544.102mil,1705.795mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7522.602mil|Location2.X=7574.491mil|Location1.Y=2164.295mil|Location2.Y=2245.805mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7522.602mil|Location2.X=7574.491mil|Location1.Y=2164.295mil|Location2.Y=2245.805mil|Absolute=True">Net Antennae: Via (7544.102mil,2185.795mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7523.5mil|Location2.X=7575.389mil|Location1.Y=1738.5mil|Location2.Y=1820.01mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7523.5mil|Location2.X=7575.389mil|Location1.Y=1738.5mil|Location2.Y=1820.01mil|Absolute=True">Net Antennae: Via (7545mil,1760mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7523.5mil|Location2.X=7575.389mil|Location1.Y=1793.5mil|Location2.Y=1875.01mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7523.5mil|Location2.X=7575.389mil|Location1.Y=1793.5mil|Location2.Y=1875.01mil|Absolute=True">Net Antennae: Via (7545mil,1815mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7523.5mil|Location2.X=7575.389mil|Location1.Y=1843.5mil|Location2.Y=1925.01mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7523.5mil|Location2.X=7575.389mil|Location1.Y=1843.5mil|Location2.Y=1925.01mil|Absolute=True">Net Antennae: Via (7545mil,1865mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7523.5mil|Location2.X=7575.389mil|Location1.Y=1898.5mil|Location2.Y=1980.01mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7523.5mil|Location2.X=7575.389mil|Location1.Y=1898.5mil|Location2.Y=1980.01mil|Absolute=True">Net Antennae: Via (7545mil,1920mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7523.5mil|Location2.X=7575.389mil|Location1.Y=2003.5mil|Location2.Y=2085.01mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7523.5mil|Location2.X=7575.389mil|Location1.Y=2003.5mil|Location2.Y=2085.01mil|Absolute=True">Net Antennae: Via (7545mil,2025mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7523.5mil|Location2.X=7575.389mil|Location1.Y=2108.5mil|Location2.Y=2190.01mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7523.5mil|Location2.X=7575.389mil|Location1.Y=2108.5mil|Location2.Y=2190.01mil|Absolute=True">Net Antennae: Via (7545mil,2130mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7523.5mil|Location2.X=7575.389mil|Location1.Y=2218.5mil|Location2.Y=2300.01mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7523.5mil|Location2.X=7575.389mil|Location1.Y=2218.5mil|Location2.Y=2300.01mil|Absolute=True">Net Antennae: Via (7545mil,2240mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7543.5mil|Location2.X=7595.389mil|Location1.Y=1938.5mil|Location2.Y=2020.01mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Stefan\OneDrive\070_UNI\40_SS25\ELEKT\NEW_2\ELEK_Inv_Pen\merged_project\merged_project\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=7543.5mil|Location2.X=7595.389mil|Location1.Y=1938.5mil|Location2.Y=2020.01mil|Absolute=True">Net Antennae: Via (7565mil,1960mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>
